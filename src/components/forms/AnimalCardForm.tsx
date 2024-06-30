@@ -69,6 +69,7 @@ export const AnimalCardForm = ({
       appeal: 0,
       conservationPoint: 0,
       wave: false,
+      fossil: false,
       canBeInStandardEnclosure: true,
       source: CardSource.FAN_MADE,
     },
@@ -172,6 +173,19 @@ export const AnimalCardForm = ({
               <FormLabel>{t('diy.animal_name')}</FormLabel>
               <FormControl>
                 <Input placeholder='name' {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name='latinName'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('Latin name')}</FormLabel>
+              <FormControl>
+                <Input placeholder='latinName' {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -770,7 +784,7 @@ export const AnimalCardForm = ({
           render={({ field }) => (
             <FormItem className='flex flex-row items-center justify-between rounded-lg border p-4'>
               <div className='space-y-0.5'>
-                <FormLabel className='text-base'>{t('fossil')}</FormLabel>
+                <FormLabel className='text-base'>{t('Fossil')}</FormLabel>
                 <FormDescription>
                   Usually The prehistoric creatures should have fossil ability
                 </FormDescription>

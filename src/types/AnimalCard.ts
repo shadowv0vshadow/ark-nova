@@ -36,6 +36,7 @@ export interface AnimalCard {
   reefDwellerEffect?: Ability[];
   soloEffect?: Ability[];
   wave?: boolean;
+  fossil?: boolean;
 
   // bottom
   reputation?: number;
@@ -116,6 +117,7 @@ export const AnimalCardSchema = z.object({
   reefDwellerEffect: z.optional(z.array(AbilitySchema)),
   soloEffect: z.optional(z.array(AbilitySchema)),
   wave: z.optional(z.boolean()),
+  fossil: z.optional(z.boolean()),
 
   reputation: z.optional(z.number()),
   appeal: z.optional(z.number()),

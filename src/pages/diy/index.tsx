@@ -57,6 +57,7 @@ export default function Page(
     appeal: 0,
     conservationPoint: 0,
     wave: false,
+    fossil: false,
     canBeInStandardEnclosure: true,
     source: CardSource.FAN_MADE,
   } as AnimalCardSchemaDto;
