@@ -5015,6 +5015,13 @@
   background-size: 605.8695652173913%;
 }
 
+.icon-fossil {
+    background: url(/img/fossil.jpg);
+    padding: 18px 30px;
+    margin: 7px 15px;
+    background-size: contain;
+}
+
 /* replace original icons with these */
 .arknova-icon.icon-posturing {
   background-position: 25.399198137609935% 54.62046204620462%;
