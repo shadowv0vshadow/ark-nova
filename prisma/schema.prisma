@@ -1,0 +1,139 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+  relationMode = "prisma"
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  cardid   String   @db.VarChar(10)
+  createdat DateTime @default(now())
+  updatedat DateTime @updatedAt
+  rating    Int
+  title     String   @db.VarChar(255)
+  content   String?
+  userid  String   @db.VarChar(255)
+  userinfo Json
+  likes    Int      @default(0)
+
+  @@index(userid)
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  user   User    @relation(fields: [userId], references: [id])
+  userId Int     @unique
+
+  @@index(userId)
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  profile Profile?
+}
+
+model AnimalCard {
+  id      Int      @id @default(autoincrement())
+  cardId        String   @db.VarChar(255)
+  createdat DateTime @default(now())
+  updatedat DateTime @updatedAt
+  name      String   @db.VarChar(30)
+  latinName String?  @db.VarChar(30)
+  endangeredCategory String?  @db.VarChar(30)
+  image String?  @db.VarChar(30)
+
+  // upper
+  size Int
+  rock  Int?
+  water  Int?
+  price  Int
+  requirements String?
+  tags String?
+  canBeInStandardEnclosure Boolean?
+  specialEnclosures String? // SpecialEnclosure[];
+
+  // middle
+  abilities String?
+  description String?
+  reefDwellerEffect String?
+  soloEffect String?
+  wave Boolean?
+
+  // bottom
+  reputation Int?
+  appeal Int?
+  conservationPoint Int?
+
+  // meta data
+  source String
+  published Boolean  @default(false)
+  userId  String   @db.VarChar(255)
+
+  @@index(userId)
+}
+
+model SetUp {
+  id        Int      @id @default(autoincrement())
+  createdat DateTime @default(now())
+  updatedat DateTime @updatedAt
+  total    Int
+  card_1  String   @db.VarChar(10)
+  card_2  String   @db.VarChar(10)
+  card_3  String   @db.VarChar(10)
+  card_4  String   @db.VarChar(10)
+  card_5  String   @db.VarChar(10)
+  card_6  String   @db.VarChar(10)
+  card_7  String   @db.VarChar(10)
+  card_8  String   @db.VarChar(10)
+  map_1  String   @db.VarChar(10)
+  map_2  String   @db.VarChar(10)
+  endgame_1   String   @db.VarChar(10)
+  endgame_2   String   @db.VarChar(10)
+  conservation_1  String   @db.VarChar(10)
+  conservation_2  String   @db.VarChar(10)
+  conservation_3  String   @db.VarChar(10)
+  game_setting String   @db.VarChar(255)
+  title     String   @db.VarChar(255)
+  content   String?
+  likes    Int      @default(0)
+
+  @@index(id)
+}
+
+model UserSetUp {
+  id        Int      @id @default(autoincrement())
+  set_up_id   String   @db.VarChar(10)
+  createdat DateTime @default(now())
+  updatedat DateTime @updatedAt
+  rating    Int
+  title     String   @db.VarChar(255)
+  content   String?
+  userid  String   @db.VarChar(255)
+  userinfo Json
+  likes    Int      @default(0)
+  card_1  Boolean   @db.Boolean()
+  card_2  Boolean   @db.Boolean()
+  card_3  Boolean   @db.Boolean()
+  card_4  Boolean   @db.Boolean()
+  card_5  Boolean   @db.Boolean()
+  card_6  Boolean   @db.Boolean()
+  card_7  Boolean   @db.Boolean()
+  card_8  Boolean   @db.Boolean()
+  map_1  Boolean   @db.Boolean()
+  map_2  Boolean   @db.Boolean()
+  endgame_1   Boolean   @db.Boolean()
+  endgame_2   Boolean   @db.Boolean()
+
+  @@index(set_up_id)
+}
