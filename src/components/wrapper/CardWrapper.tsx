@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils';
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { BaseEndGameCard } from '@/components/cards/endgame_cards/BaseEndGameCard';
 import {
-  ProjectCard,
   TokenProjectCard,
 } from '@/components/cards/project_cards/ProjectCard';
 import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCard';

@@ -1,11 +1,9 @@
-import _ from 'lodash';
 import seedrandom from 'seedrandom';
 
-import { MapBoards } from '@/data/MapBoards';
 import { getCardIds } from '@/utils/GetAllCardIds';
-import { CardType } from '@/types/Card';
-import { CardSource } from '@/types/CardSource';
 import { getMaps } from '@/utils/getMaps';
+
+import { CardType } from '@/types/Card';
 import { DEFAULT_CONFIG, GameConfig, IPlayerData } from '@/types/IQuiz';
 export const NUMBER_HAND = 8;
 export const NUMBER_MAP = 2;

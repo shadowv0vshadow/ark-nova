@@ -1,6 +1,8 @@
+import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
-import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+
 import { MapBoard } from '@/components/map_boards/MapBoard';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,8 +14,8 @@ import {
   NUMBER_FINAL_SCORING,
   NUMBER_HAND,
 } from '@/utils/GenerateRandomCards';
+
 import { UserArrowLeftIcon } from '~/index';
-import { usePathname } from 'next/navigation';
 
 export const Quiz: React.FC<any> = (todayQuiz) => {
   const pathname = usePathname();

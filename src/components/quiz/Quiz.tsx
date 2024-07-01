@@ -1,27 +1,23 @@
+import { Check, Share2 } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
-import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+
 import { MapBoard } from '@/components/map_boards/MapBoard';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import CardWrapper from '@/components/wrapper/CardWrapper';
-import { v4 as uuidv4 } from 'uuid';
 
 import {
   GameSetupGenerator,
-  NUMBER_CONSERVATION,
-  NUMBER_FINAL_SCORING,
-  NUMBER_HAND,
 } from '@/utils/GenerateRandomCards';
-import { UserArrowLeftIcon } from '~/index';
-import { usePathname } from 'next/navigation';
-import { CardSource } from '@/types/CardSource';
-import { GameConfig } from '@/types/IQuiz';
-import { Badge } from '@/components/ui/badge';
-import Link from 'next/link';
+
 import { RerollButton } from './Reroll';
-import { Check, Share2 } from 'lucide-react';
+
+import { GameConfig } from '@/types/IQuiz';
+
 export type Props = {
   seed: string;
   gameConfig: GameConfig;

@@ -1,9 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { prisma } from '@/lib/prisma-client';
-
 // import { generateSetUp } from '@/utils/GenerateRandomCards';
-
 import { CardSource } from '@/types/CardSource';
 // POST /api/comments/create/
 export default async function post(req: NextApiRequest, res: NextApiResponse) {
